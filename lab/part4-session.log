@@ -1,0 +1,3050 @@
+Script started on 2026-10-09 21:41:19+05:30 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="184" LINES="43"]
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ [7mprintf '\n===== CHART FILES =====\n'[27m
+[7mfind broken-chart -maxdepth 5 -type f | sort[27m[A]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ printf '\n===== CHART FILES =====\n'
+find broken-chart -maxdepth 5 -type f | sort
+[?2004l
+===== CHART FILES =====
+broken-chart/Chart.yaml
+broken-chart/templates/backend.yaml
+broken-chart/templates/gateway.yaml
+broken-chart/templates/_helpers.tpl
+broken-chart/templates/metrics.yaml
+broken-chart/templates/migrate-job.yaml
+broken-chart/templates/NOTES.txt
+broken-chart/templates/rbac.yaml
+broken-chart/templates/reporter.yaml
+broken-chart/templates/worker.yaml
+broken-chart/values.yaml
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ [7mprintf '\n===== SECURITY, JOB AND RBAC CONFIG =====\n'[27m
+[7mgrep -RniE 'runAsNonRoot|runAsUser|restartPolicy|serviceAccount|RoleBinding|kind: Job|namespace:|image:' broken-chart[27m[Aprintf '\n===== SECURITY, JOB AND RBAC CONFIG =====\n'
+grep -RniE 'runAsNonRoot|runAsUser|restartPolicy|serviceAccount|RoleBinding|kind: Job|namespace:|image:' broken-chart
+[?2004l
+===== SECURITY, JOB AND RBAC CONFIG =====
+[35m[Kbroken-chart/values.yaml[m[K[36m[K:[m[K[32m[K9[m[K[36m[K:[m[K[01;31m[Kimage:[m[K
+[35m[Kbroken-chart/values.yaml[m[K[36m[K:[m[K[32m[K63[m[K[36m[K:[m[K  [01;31m[KserviceAccount[m[KName: reporter
+[35m[Kbroken-chart/templates/migrate-job.yaml[m[K[36m[K:[m[K[32m[K3[m[K[36m[K:[m[K[01;31m[Kkind: Job[m[K
+[35m[Kbroken-chart/templates/migrate-job.yaml[m[K[36m[K:[m[K[32m[K16[m[K[36m[K:[m[K      [01;31m[KrestartPolicy[m[K: Always
+[35m[Kbroken-chart/templates/migrate-job.yaml[m[K[36m[K:[m[K[32m[K19[m[K[36m[K:[m[K          [01;31m[Kimage:[m[K "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+[35m[Kbroken-chart/templates/migrate-job.yaml[m[K[36m[K:[m[K[32m[K29[m[K[36m[K:[m[K            [01;31m[KrunAsNonRoot[m[K: true
+[35m[Kbroken-chart/templates/backend.yaml[m[K[36m[K:[m[K[32m[K21[m[K[36m[K:[m[K          [01;31m[Kimage:[m[K "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+[35m[Kbroken-chart/templates/backend.yaml[m[K[36m[K:[m[K[32m[K39[m[K[36m[K:[m[K            [01;31m[KrunAsNonRoot[m[K: true
+[35m[Kbroken-chart/templates/metrics.yaml[m[K[36m[K:[m[K[32m[K21[m[K[36m[K:[m[K          [01;31m[Kimage:[m[K "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+[35m[Kbroken-chart/templates/metrics.yaml[m[K[36m[K:[m[K[32m[K39[m[K[36m[K:[m[K            [01;31m[KrunAsNonRoot[m[K: true
+[35m[Kbroken-chart/templates/reporter.yaml[m[K[36m[K:[m[K[32m[K19[m[K[36m[K:[m[K      [01;31m[KserviceAccount[m[KName: {{ .Values.reporter.[01;31m[KserviceAccount[m[KName }}
+[35m[Kbroken-chart/templates/reporter.yaml[m[K[36m[K:[m[K[32m[K22[m[K[36m[K:[m[K          [01;31m[Kimage:[m[K "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+[35m[Kbroken-chart/templates/reporter.yaml[m[K[36m[K:[m[K[32m[K44[m[K[36m[K:[m[K            [01;31m[KrunAsNonRoot[m[K: true
+[35m[Kbroken-chart/templates/gateway.yaml[m[K[36m[K:[m[K[32m[K21[m[K[36m[K:[m[K          [01;31m[Kimage:[m[K "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+[35m[Kbroken-chart/templates/gateway.yaml[m[K[36m[K:[m[K[32m[K[36m[K:[m[K[32m[K22[m[K[36m[K:[m[K          [01;31m[Kimage:[m[K "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+[35m[Kbroken-chart/templates/reporter.yaml[m[K[36m[K:[m[K[32m[K44[m[K[36m[K:[m[K            [01;31m[KrunAsNonRoot[m[K: true
+[35m[Kbroken-chart/templates/gateway.yaml[m[K[36m[K:[m[K[32m[K21[m[K[36m[K:[m[K          [01;31m[Kimage:[m[K "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+[35m[Kbroken-chart/templates/gateway.yaml[m[K[36m[K:[m[K[32m[K39[m[K[36m[K:[m[K            [01;31m[KrunAsNonRoot[m[K: true
+[35m[Kbroken-chart/templates/worker.yaml[m[K[36m[K:[m[K[32m[K21[m[K[36m[K:[m[K          [01;31m[Kimage:[m[K "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+[35m[Kbroken-chart/templates/worker.yaml[m[K[36m[K:[m[K[32m[K39[m[K[36m[K:[m[K            [01;31m[KrunAsNonRoot[m[K: true
+[35m[Kbroken-chart/templates/rbac.yaml[m[K[36m[K:[m[K[32m[K2[m[K[36m[K:[m[Kkind: [01;31m[KServiceAccount[m[K
+[35m[Kbroken-chart/templates/rbac.yaml[m[K[36m[K:[m[K[32m[K22[m[K[36m[K:[m[Kkind: [01;31m[KRoleBinding[m[K
+[35m[Kbroken-chart/templates/rbac.yaml[m[K[36m[K:[m[K[32m[K33[m[K[36m[K:[m[K  - kind: [01;31m[KServiceAccount[m[K
+[35m[Kbroken-chart/templates/rbac.yaml[m[K[36m[K:[m[K[32m[K35[m[K[36m[K:[m[K    [01;31m[Knamespace:[m[K {{ .Release.Namespace }}
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ 
+[7mprintf '\n===== HELM RELEASE =====\n'[27m
+[7mhelm list -n debug-lab -a[27m[Aprintf '\n===== HELM RELEASE =====\n'
+helm list -n debug-lab -a
+[?2004l
+===== HELM RELEASE =====
+Error: unknown shorthand flag: 'a' in -a
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ helm list -n debug-lab -aprintf '\n===== HELM RELEASE =====\n'[12Phelm list -n debug-lab -a
+[?2004lError: unknown shorthand flag: 'a' in -a
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ helm list -n debug-lab -a[K[K
+[?2004l[1mNAME[22m     	[1mNAMESPACE[22m	[1mREVISION[22m	[1mUPDATED[22m                               	[1mSTATUS[22m	[1mCHART[22m          	[1mAPP VERSION[22m
+debug-lab	[36mdebug-lab[0m	1       	2026-10-09 21:10:29.78349755 +0530 IST	[31mfailed[0m	debug-lab-2.0.0	1.0.1      
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ [7mkubectl get namespace debug-lab[27mkubectl get namespace debug-lab
+[?2004lNAME        STATUS   AGE
+debug-lab   Active   31m
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ [7mkubectl -n debug-lab describe deployment backend[27m
+[7mkubectl -n debug-lab describe deployment gateway[27m
+[7mkubectl -n debug-lab describe deployment reporter[27m[A[A]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ kubectl -n debug-lab describe deployment backend
+kubectl -n debug-lab describe deployment gateway
+kubectl -n debug-lab describe deployment reporter
+[?2004lName:                   backend
+Namespace:              debug-lab
+CreationTimestamp:      Fri, 09 Oct 2026 21:10:30 +0530
+Labels:                 app=backend
+                        app.kubernetes.io/managed-by=Helm
+                        app.kubernetes.io/part-of=eb-debug-lab
+                        helm.sh/chart=debug-lab-2.0.0
+Annotations:            deployment.kubernetes.io/revision: 1
+                        meta.helm.sh/release-name: debug-lab
+                        meta.helm.sh/release-namespace: debug-lab
+Selector:               app=backend
+Replicas:               1 desired | 1 updated | 1 total | 0 available | 1 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=backend
+           app.kubernetes.io/managed-by=Helm
+           app.kubernetes.io/part-of=eb-debug-lab
+           helm.sh/chart=debug-lab-2.0.0
+  Containers:
+   backend:
+    Image:      docker.io/ebinterview/eb-debug-app:1.0.1
+    Port:       8080/TCP (http)
+    Host Port:  0/TCP (http)
+    Limits:
+      cpu:     200m
+      memory:  128Mi
+    Requests:
+      cpu:      50m
+      memory:   64Mi
+    Readiness:  http-get http://:8080/healthz delay=3s timeout=3s period=5s #success=1 #failure=3
+    Environment:
+      APP_MODE:    api
+      APP_NAME:    backend
+      VERSION:     2.0.0
+    Mounts:        <none>
+  Volumes:         <none>
+  Node-Selectors:  <none>
+  Tolerations:     <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      False   MinimumReplicasUnavailable
+  Progressing    False   ProgressDeadlineExceeded
+OldReplicaSets:  <none>
+NewReplicaSet:   backend-6547956699 (1/1 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  31m   deployment-controller  Scaled up replica set backend-6547956699 from 0 to 1
+Name:                   gateway
+Namespace:              debug-lab
+CreationTimestamp:      Fri, 09 Oct 2026 21:10:30 +0530
+Labels:                 app=gateway
+                        app.kubernetes.io/managed-by=Helm
+                        app.kubernetes.io/part-of=eb-debug-lab
+                        helm.sh/chart=debug-lab-2.0.0
+Annotations:            deployment.kubernetes.io/revision: 1
+                        meta.helm.sh/release-name: debug-lab
+                        meta.helm.sh/release-namespace: debug-lab
+Selector:               app=gateway
+Replicas:               1 desired | 1 updated | 1 total | 0 available | 1 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=gateway
+           app.kubernetes.io/managed-by=Helm
+           app.kubernetes.io/part-of=eb-debug-lab
+           helm.sh/chart=debug-lab-2.0.0
+  Containers:
+   gateway:
+    Image:      docker.io/ebinterview/eb-debug-app:1.0.1
+    Port:       8080/TCP (http)
+    Host Port:  0/TCP (http)
+    Limits:
+      cpu:     200m
+      memory:  128Mi
+    Requests:
+      cpu:      50m
+      memory:   64Mi
+    Readiness:  http-get http://:8080/healthz delay=3s timeout=3s period=5s #success=1 #failure=3
+    Environment:
+      APP_MODE:     gateway
+      APP_NAME:     gateway
+      BACKEND_URL:  http://backend.default.svc:8080
+      VERSION:      2.0.0
+    Mounts:         <none>
+  Volumes:          <none>
+  Node-Selectors:   <none>
+  Tolerations:      <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      False   MinimumReplicasUnavailable
+  Progressing    False   ProgressDeadlineExceeded
+OldReplicaSets:  <none>
+NewReplicaSet:   gateway-84b944b5d7 (1/1 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  31m   deployment-controller  Scaled up replica set gateway-84b944b5d7 from 0 to 1
+Name:                   reporter
+Namespace:              debug-lab
+CreationTimestamp:      Fri, 09 Oct 2026 21:10:30 +0530
+Labels:                 app=reporter
+                        app.kubernetes.io/managed-by=Helm
+                        app.kubernetes.io/part-of=eb-debug-lab
+                        helm.sh/chart=debug-lab-2.0.0
+Annotations:            deployment.kubernetes.io/revision: 1
+                        meta.helm.sh/release-name: debug-lab
+                        meta.helm.sh/release-namespace: debug-lab
+Selector:               app=reporter
+Replicas:               1 desired | 1 updated | 1 total | 0 available | 1 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:           app=reporter
+                    app.kubernetes.io/managed-by=Helm
+                    app.kubernetes.io/part-of=eb-debug-lab
+                    helm.sh/chart=debug-lab-2.0.0
+  Service Account:  reporter
+  Containers:
+   reporter:
+    Image:      docker.io/ebinterview/eb-debug-app:1.0.1
+    Port:       8080/TCP (http)
+    Host Port:  0/TCP (http)
+    Limits:
+      cpu:     200m
+      memory:  128Mi
+    Requests:
+      cpu:      50m
+      memory:   64Mi
+    Readiness:  http-get http://:8080/healthz delay=3s timeout=3s period=5s #success=1 #failure=3
+    Environment:
+      NAMESPACE:    (v1:metadata.namespace)
+      APP_MODE:    reporter
+      APP_NAME:    reporter
+      VERSION:     2.0.0
+    Mounts:        <none>
+  Volumes:         <none>
+  Node-Selectors:  <none>
+  Tolerations:     <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      False   MinimumReplicasUnavailable
+  Progressing    False   ProgressDeadlineExceeded
+OldReplicaSets:  <none>
+NewReplicaSet:   reporter-59467ccdd9 (1/1 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  31m   deployment-controller  Scaled up replica set reporter-59467ccdd9 from 0 to 1
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ [7mprintf '\n===== VALUES =====\n'[27m
+[7mcat broken-chart/values.yaml[27m
+
+[7mfor f in broken-chart/templates/*.yaml; do[27m
+[7m  printf '\n===== %s =====\n' "$f"[27m
+[7m  cat "$f"[27m
+[7mdone[27m[A[A[A[A[A[A]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ printf '\n===== VALUES =====\n'
+cat broken-chart/values.yaml
+
+for f in broken-chart/templates/*.yaml; do
+  printf '\n===== %s =====\n' "$f"
+  cat "$f"
+done
+[?2004l
+===== VALUES =====
+# Debug lab — values.
+#
+# Lab rules (also in the assignment):
+#   * You may change anything in this chart — values or templates.
+#   * You may NOT change image.repository or image.tag.
+#   * You may NOT modify anything under ../cluster-state/.
+#   * You may NOT delete workloads to make a symptom disappear.
+
+image:
+  repository: docker.io/ebinterview/eb-debug-app
+  tag: "1.0.1"
+  pullPolicy: IfNotPresent
+
+common:
+  # Every workload serves plain HTTP on this port.
+  port: 8080
+
+backend:
+  replicas: 1
+  env:
+    APP_MODE: "api"
+    APP_NAME: "backend"
+    VERSION: "2.0.0"
+  resources:
+    requests:
+      cpu: "50m"
+      memory: "64Mi"
+    limits:
+      cpu: "200m"
+      memory: "128Mi"
+
+gateway:
+  replicas: 1
+  env:
+    APP_MODE: "gateway"
+    APP_NAME: "gateway"
+    VERSION: "2.0.0"
+    BACKEND_URL: "http://backend.default.svc:8080"
+  resources:
+    requests:
+      cpu: "50m"
+      memory: "64Mi"
+    limits:
+      cpu: "200m"
+      memory: "128Mi"
+
+worker:
+  replicas: 1
+  env:
+    APP_MODE: "worker"
+    APP_NAME: "worker"
+    VERSION: "2.0.0"
+  resources:
+    requests:
+      cpu: "50m"
+      memory: "64Mi"
+    limits:
+      cpu: "200m"
+      memory: "128Mi"
+
+reporter:
+  replicas: 1
+  serviceAccountName: reporter
+  env:
+    APP_MODE: "reporter"
+    APP_NAME: "reporter"
+    VERSION: "2.0.0"
+  resources:
+    requests:
+      cpu: "50m"
+      memory: "64Mi"
+    limits:
+      cpu: "200m"
+      memory: "128Mi"
+
+metrics:
+  replicas: 1
+  env:
+    APP_MODE: "api"
+    APP_NAME: "metrics"
+    VERSION: "2.0.0"
+  resources:
+    requests:
+      cpu: "2"
+      memory: "64Mi"
+    limits:
+      cpu: "4"
+      memory: "128Mi"
+
+migrate:
+  enabled: true
+  backoffLimit: 2
+
+===== broken-chart/templates/backend.yaml =====
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    app: backend
+    {{- include "lab.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.backend.replicas }}
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+        {{- include "lab.labels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: backend
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.common.port }}
+          env:
+            {{- range $name, $value := .Values.backend.env }}
+            - name: {{ $name }}
+              value: {{ $value | quote }}
+            {{- end }}
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: {{ .Values.common.port }}
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            timeoutSeconds: 3
+          securityContext:
+            runAsNonRoot: true
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            {{- toYaml .Values.backend.resources | nindent 12 }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  labels:
+    app: backend
+    {{- include "lab.labels" . | nindent 4 }}
+spec:
+  selector:
+    app: backend
+  ports:
+    - name: http
+      port: 8080
+      targetPort: {{ .Values.common.port }}
+
+===== broken-chart/templates/gateway.yaml =====
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway
+  labels:
+    app: gateway
+    {{- include "lab.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.gateway.replicas }}
+  selector:
+    matchLabels:
+      app: gateway
+  template:
+    metadata:
+      labels:
+        app: gateway
+        {{- include "lab.labels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: gateway
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.common.port }}
+          env:
+            {{- range $name, $value := .Values.gateway.env }}
+            - name: {{ $name }}
+              value: {{ $value | quote }}
+            {{- end }}
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: {{ .Values.common.port }}
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            timeoutSeconds: 3
+          securityContext:
+            runAsNonRoot: true
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            {{- toYaml .Values.gateway.resources | nindent 12 }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gateway
+  labels:
+    app: gateway
+    {{- include "lab.labels" . | nindent 4 }}
+spec:
+  selector:
+    app: gateway
+  ports:
+    - name: http
+      port: 80
+      targetPort: {{ .Values.common.port }}
+
+===== broken-chart/templates/metrics.yaml =====
+apiVersion: apps/v1
+ki:
+            - name: http
+              containerPort: {{ .Values.common.port }}
+          env:
+            {{- range $name, $value := .Values.metrics.env }}
+            - name: {{ $name }}
+              value: {{ $value | quote }}
+            {{- end }}
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: {{ .Values.common.port }}
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            timeoutSeconds: 3
+          securityContext:
+            runAsNonRoot: true
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            {{- toYaml .Values.metrics.resources | nindent 12 }}
+
+===== broken-chart/templates/migrate-job.yaml =====
+{{- if .Values.migrate.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: migrate
+  labels:
+    app: migrate
+    {{- include "lab.labels" . | nindent 4 }}
+spec:
+  backoffLimit: {{ .Values.migrate.backoffLimit }}
+  template:
+    metadata:
+      labels:
+        app: migrate
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: migrate
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: APP_MODE
+              value: "migrate"
+            - name: APP_NAME
+              value: "migrate"
+            - name: VERSION
+              value: "2.0.0"
+          securityContext:
+            runAsNonRoot: true
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "200m"
+              memory: "128Mi"
+{{- end }}
+
+===== broken-chart/templates/rbac.yaml =====
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: reporter
+  labels:
+    app: reporter
+    {{- include "lab.labels" . | nindent 4 }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: reporter-read
+  labels:
+    app: reporter
+    {{- include "lab.labels" . | nindent 4 }}
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: reporter-read
+  labels:
+    app: reporter
+    {{- include "lab.labels" . | nindent 4 }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: reporter-read
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: {{ .Release.Namespace }}
+
+===== broken-chart/templates/reporter.yaml =====
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reporter
+  labels:
+    app: reporter
+    {{- include "lab.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.reporter.replicas }}
+  selector:
+    matchLabels:
+      app: reporter
+  template:
+    metadata:
+      labels:
+        app: reporter
+        {{- include "lab.labels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ .Values.reporter.serviceAccountName }}
+      containers:
+        - name: reporter
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.common.port }}
+          env:
+            - name: NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            {{- range $name, $value := .Values.reporter.env }}
+            - name: {{ $name }}
+              value: {{ $value | quote }}
+            {{- end }}
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: {{ .Values.common.port }}
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            timeoutSeconds: 3
+          securityContext:
+            runAsNonRoot: true
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            {{- toYaml .Values.reporter.resources | nindent 12 }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reporter
+  labels:
+    app: reporter
+    {{- include "lab.labels" . | nindent 4 }}
+spec:
+  selector:
+    app: reporter
+  ports:
+    - name: http
+      port: 8080
+      targetPort: {{ .Values.common.port }}
+
+===== broken-chart/templates/worker.yaml =====
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker
+  labels:
+    app: worker
+    {{- include "lab.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.worker.replicas }}
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels:
+        app: worker
+        {{- include "lab.labels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: worker
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.common.port }}
+          env:
+            {{- range $name, $value := .Values.worker.env }}
+            - name: {{ $name }}
+              value: {{ $value | quote }}
+            {{- end }}
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: {{ .Values.common.port }}
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            timeoutSeconds: 3
+          securityContext:
+            runAsNonRoot: true
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            {{- toYaml .Values.worker.resources | nindent 12 }}
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ [7mkubectl -n debug-lab get role,rolebinding,serviceaccount[27m
+[7mkubectl -n debug-lab describe role[27m
+[7mkubectl -n debug-lab get jobs[27m
+[7mkubectl -n debug-lab get pods -o yaml[27m[A[A[A]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ kubectl -n debug-lab get role,rolebinding,serviceaccount
+kubectl -n debug-lab describe role
+kubectl -n debug-lab get jobs
+kubectl -n debug-lab get pods -o yaml
+[?2004lNAME                                           CREATED AT
+role.rbac.authorization.k8s.io/reporter-read   2026-10-09T15:40:30Z
+
+NAME                                                  ROLE                 AGE
+rolebinding.rbac.authorization.k8s.io/reporter-read   Role/reporter-read   33m
+
+NAME                      AGE
+serviceaccount/default    33m
+serviceaccount/reporter   33m
+Name:         reporter-read
+Labels:       app=reporter
+              app.kubernetes.io/managed-by=Helm
+              app.kubernetes.io/part-of=eb-debug-lab
+              helm.sh/chart=debug-lab-2.0.0
+Annotations:  meta.helm.sh/release-name: debug-lab
+              meta.helm.sh/release-namespace: debug-lab
+PolicyRule:
+  Resources  Non-Resource URLs  Resource Names  Verbs
+  ---------  -----------------  --------------  -----
+  pods       []                 []              [get list]
+No resources found in debug-lab namespace.
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2026-10-09T15:40:30Z"
+    generateName: backend-6547956699-
+    generation: 1
+    labels:
+      app: backend
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: eb-debug-lab
+      helm.sh/chart: debug-lab-2.0.0
+      pod-template-hash: "6547956699"
+    name: backend-6547956699-m7tzx
+    namespace: debug-lab
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: backend-6547956699
+      uid: 294b51e9-349a-4c7b-88d9-5c2622726f7d
+    resourceVersion: "6158"
+    uid: 42902f8f-8003-4a5c-a3bd-f5f014f2f7e4
+  spec:
+    containers:
+    - env:
+      - name: APP_MODE
+        value: api
+      - name: APP_NAME
+        value: backend
+      - name: VERSION
+        value: 2.0.0
+      image: docker.io/ebinterview/eb-debug-app:1.0.1
+      imagePullPolicy: IfNotPresent
+      name: backend
+      ports:
+      - containerPort: 8080
+        name: http
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /healthz
+          port: 8080
+          scheme: HTTP
+        initialDelaySeconds: 3
+        periodSeconds: 5
+        successThreshold: 1
+        timeoutSeconds: 3
+      resources:
+        limits:
+          cpu: 200m
+          memory: 128Mi
+        requests:
+          cpu: 50m
+          memory: 64Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+          - ALL
+        readOnlyRootFilesystem: true
+        runAsNonRoot: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-tk77c
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: demo-control-plane
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-tk77c
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    allocatedResources:
+      cpu: 50m
+      memory: 64Mi
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:31Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:30Z"
+      observedGeneration: 1
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:30Z"
+      message: 'containers with unready status: [backend]'
+      observedGeneration: 1
+      reason: ContainersNotReady
+      status: "False"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:30Z"
+      message: 'containers with unready status: [backend]'
+      observedGeneration: 1
+      reason: ContainersNotReady
+      status: "False"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:30Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - image: docker.io/ebinterview/eb-debug-app:1.0.1
+      imageID: ""
+      lastState: {}
+      name: backend
+      ready: false
+      restartCount: 0
+      started: false
+      state:
+        waiting:
+          message: 'container has runAsNonRoot and image has non-numeric user (nonroot),
+            cannot verify user is non-root (pod: "backend-6547956699-m7tzx_debug-lab(42902f8f-8003-4a5c-a3bd-f5f014f2f7e4)",
+            container: backend)'
+          reason: CreateContainerConfigError
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-tk77c
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 172.18.0.5
+    hostIPs:
+    - ip: 172.18.0.5
+    observedGeneration: 1
+    phase: Pending
+    podIP: 10.244.0.10
+    podIPs:
+    - ip: 10.244.0.10
+    qosClass: Burstable
+    resources:
+      limits:
+        cpu: 200m
+        memory: 128Mi
+      requests:
+        cpu: 50m
+        memory: 64Mi
+    startTime: "2026-10-09T15:40:30Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2026-10-09T15:40:30Z"
+    generateName: gateway-84b944b5d7-
+    generation: 1
+    labels:
+      app: gateway
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: eb-debug-lab
+      helm.sh/chart: debug-lab-2.0.0
+      pod-template-hash: 84b944b5d7
+    name: gateway-84b944b5d7-8mbzk
+    namespace: debug-lab
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: gateway-84b944b5d7
+      uid: 526464cc-b9d9-4ce1-8f6a-84d6a1cfe907
+    resourceVersion: "6143"
+    uid: afcbd52d-883a-438a-a6dc-d983c62a7b9e
+  spec:
+    containers:
+    - env:
+      - name: APP_MODE
+        value: gateway
+      - name: APP_NAME
+        value: gateway
+      - name: BACKEND_URL
+        value: http://backend.default.svc:8080
+      - name: VERSION
+        value: 2.0.0
+      image: docker.io/ebinterview/eb-debug-app:1.0.1
+      imagePullPolicy: IfNotPresent
+      name: gateway
+      ports:
+      - containerPort: 8080
+        name: http
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /healthz
+          port: 8080
+          scheme: HTTP
+        initialDelaySeconds: 3
+        periodSeconds: 5
+        successThreshold: 1
+        timeoutSeconds: 3
+      resources:
+        limits:
+          cpu: 200m
+          memory: 128Mi
+        requests:
+          cpu: 50m
+          memory: 64Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+          - ALL
+        readOnlyRootFilesystem: true
+        runAsNonRoot: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-xncw8
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: demo-control-plane
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-xncw8
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    allocatedResources:
+      cpu: 50m
+      memory: 64Mi
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:31Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:30Z"
+      observedGeneration: 1
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:30Z"
+      message: 'containers with unready status: [gateway]'
+      observedGeneration: 1
+      reason: ContainersNotReady
+      status: "False"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:30Z"
+      message: 'containers with unready status: [gateway]'
+      observedGeneration: 1
+      reason: ContainersNotReady
+      status: "False"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:30Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - image: docker.io/ebinterview/eb-debug-app:1.0.1
+      imageID: ""
+      lastState: {}
+      name: gateway
+      ready: false
+      restartCount: 0
+      started: false
+      state:
+        waiting:
+          message: 'container has runAsNonRoot and image has non-numeric user (nonroot),
+            cannot verify user is non-root (pod: "gateway-84b944b5d7-8mbzk_debug-lab(afcbd52d-883a-438a-a6dc-d983c62a7b9e)",
+            container: gateway)'
+          reason: CreateContainerConfigError
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-xncw8
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 172.18.0.5
+    hostIPs:
+    - ip: 172.18.0.5
+    observedGeneration: 1
+    phase: Pending
+    podIP: 10.244.0.11
+    podIPs:
+    - ip: 10.244.0.11
+    qosClass: Burstable
+    resources:
+      limits:
+        cpu: 200m
+        memory: 128Mi
+      requests:
+        cpu: 50m
+        memory: 64Mi
+    startTime: "2026-10-09T15:40:30Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2026-10-09T15:40:30Z"
+    generateName: metrics-7687898774-
+    generation: 1
+    labels:
+      app: metrics
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: eb-debug-lab
+      helm.sh/chart: debug-lab-2.0.0
+      pod-template-hash: "7687898774"
+    name: metrics-7687898774-knxhz
+    namespace: debug-lab
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: metrics-7687898774
+      uid: 8143b18f-03fa-487c-b4e3-ad777880c80c
+    resourceVersion: "6127"
+    uid: 9430ca2c-6943-46cd-8ba7-4c0ae0e88a17
+  spec:
+    containers:
+    - env:
+      - name: APP_MODE
+        value: api
+      - name: APP_NAME
+        value: metrics
+      - name: VERSION
+        value: 2.0.0
+      image: docker.io/ebinterview/eb-debug-app:1.0.1
+      imagePullPolicy: IfNotPresent
+      name: metrics
+      ports:
+      - containerPort: 8080
+        name: http
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /healthz
+          port: 8080
+          scheme: HTTP
+        initialDelaySeconds: 3
+        periodSeconds: 5
+        successThreshold: 1
+        timeoutSeconds: 3
+      resources:
+        limits:
+          cpu: "4"
+          memory: 128Mi
+        requests:
+          cpu: "2"
+          memory: 64Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+          - ALL
+        readOnlyRootFilesystem: true
+        runAsNonRoot: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-kp72w
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: demo-control-plane
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-kp72w
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    allocatedResources:
+      cpu: "2"
+      memory: 64Mi
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:30Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:30Z"
+      observedGeneration: 1
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:30Z"
+      message: 'containers with unready status: [metrics]'
+      observedGeneration: 1
+      reason: ContainersNotReady
+      status: "False"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:30Z"
+      message: 'containers with unready status: [metrics]'
+      observedGeneration: 1
+      reason: ContainersNotReady
+      status: "False"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:30Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - image: docker.io/ebinterview/eb-debug-app:1.0.1
+      imageID: ""
+      lastState: {}
+      name: metrics
+      ready: false
+      restartCount: 0
+      started: false
+      state:
+        waiting:
+          message: 'container has runAsNonRoot and image has non-numeric user (nonroot),
+            cannot verify user is non-root (pod: "metrics-7687898774-knxhz_debug-lab(9430ca2c-6943-46cd-8ba7-4c0ae0e88a17)",
+            container: metrics)'
+          reason: CreateContainerConfigError
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-kp72w
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 172.18.0.5
+    hostIPs:
+    - ip: 172.18.0.5
+    observedGeneration: 1
+    phase: Pending
+    podIP: 10.244.0.13
+    podIPs:
+    - ip: 10.244.0.13
+    qosClass: Burstable
+    resources:
+      limits:
+        cpu: "4"
+        memory: 128Mi
+      requests:
+        cpu: "2"
+        memory: 64Mi
+    startTime: "2026-10-09T15:40:30Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2026-10-09T15:40:30Z"
+    generateName: reporter-59467ccdd9-
+    generation: 1
+    labels:
+      app: reporter
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: eb-debug-lab
+      helm.sh/chart: debug-lab-2.0.0
+      pod-template-hash: 59467ccdd9
+    name: reporter-59467ccdd9-ccf9f
+    namespace: debug-lab
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: reporter-59467ccdd9
+      uid: a7f4d2bd-c06b-47f7-b9f8-058311a7cb38
+    resourceVersion: "6134"
+    uid: 56e5ecdd-2759-47ca-afce-b4d0d5824121
+  spec:
+    containers:
+    - env:
+      - name: NAMESPACE
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.namespace
+      - name: APP_MODE
+        value: reporter
+      - name: APP_NAME
+        value: reporter
+      - name: VERSION
+        value: 2.0.0
+      image: docker.io/ebinterview/eb-debug-app:1.0.1
+      imagePullPolicy: IfNotPresent
+      name: reporter
+      ports:
+      - containerPort: 8080
+        name: http
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /healthz
+          port: 8080
+          scheme: HTTP
+        initialDelaySeconds: 3
+        periodSeconds: 5
+        successThreshold: 1
+        timeoutSeconds: 3
+      resources:
+        limits:
+          cpu: 200m
+          memory: 128Mi
+        requests:
+          cpu: 50m
+          memory: 64Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+          - ALL
+        readOnlyRootFilesystem: true
+        runAsNonRoot: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-nkcvx
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: demo-control-plane
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: reporter
+    serviceAccountName: reporter
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-nkcvx
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    allocatedResources:
+      cpu: 50m
+      memory: 64Mi
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:31Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:30Z"
+      observedGeneration: 1
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:30Z"
+      message: 'containers with unready status: [reporter]'
+      observedGeneration: 1
+      reason: ContainersNotReady
+      status: "False"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:30Z"
+      message: 'containers with unready status: [reporter]'
+      observedGeneration: 1
+      reason: ContainersNotReady
+      status: "False"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:30Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - image: docker.io/ebinterview/eb-debug-app:1.0.1
+      imageID: ""
+      lastState: {}
+      name: reporter
+      ready: false
+      restartCount: 0
+      started: false
+      state:
+        waiting:
+          message: 'container has runAsNonRoot and image has non-numeric user (nonroot),
+            cannot verify user is non-root (pod: "reporter-59467ccdd9-ccf9f_debug-lab(56e5ecdd-2759-47ca-afce-b4d0d5824121)",
+            container: reporter)'
+          reason: CreateContainerConfigError
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-nkcvx
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 172.18.0.5
+    hostIPs:
+    - ip: 172.18.0.5
+    observedGeneration: 1
+    phase: Pending
+    podIP: 10.244.0.12
+    podIPs:
+    - ip: 10.244.0.12
+    qosClass: Burstable
+    resources:
+      limits:
+        cpu: 200m
+        memory: 128Mi
+      requests:
+        cpu: 50m
+        memory: 64Mi
+    startTime: "2026-10-09T15:40:30Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2026-10-09T15:40:30Z"
+    generateName: worker-647f944fcf-
+    generation: 1
+    labels:
+      app: worker
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: eb-debug-lab
+      helm.sh/chart: debug-lab-2.0.0
+      pod-template-hash: 647f944fcf
+    name: worker-647f944fcf-4cdtv
+    namespace: debug-lab
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: worker-647f944fcf
+      uid: 3a2367be-f3b5-493e-beb3-e123f147611e
+    resourceVersion: "6154"
+    uid: 7151b781-2285-4ef1-8ae1-19b5ac10c1fa
+  spec:
+    containers:
+    - env:
+      - name: APP_MODE
+        value: worker
+      - name: APP_NAME
+        value: worker
+      - name: VERSION
+        value: 2.0.0
+      image: docker.io/ebinterview/eb-debug-app:1.0.1
+      imagePullPolicy: IfNotPresent
+      name: worker
+      ports:
+      - containerPort: 8080
+        name: http
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /healthz
+          port: 8080
+          scheme: HTTP
+        initialDelaySeconds: 3
+        periodSeconds: 5
+        successThreshold: 1
+        timeoutSeconds: 3
+      resources:
+        limits:
+          cpu: 200m
+          memory: 128Mi
+        requests:
+          cpu: 50m
+          memory: 64Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+          - ALL
+        readOnlyRootFilesystem: true
+        runAsNonRoot: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-28kqz
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: demo-control-plane
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-28kqz
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    allocatedResources:
+      cpu: 50m
+      memory: 64Mi
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:31Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:30Z"
+      observedGeneration: 1
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:30Z"
+      message: 'containers with unready status: [worker]'
+      observedGeneration: 1
+      reason: ContainersNotReady
+      status: "False"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:30Z"
+      message: 'containers with unready status: [worker]'
+      observedGeneration: 1
+      reason: ContainersNotReady
+      status: "False"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2026-10-09T15:40:30Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - image: docker.io/ebinterview/eb-debug-app:1.0.1
+      imageID: ""
+      lastState: {}
+      name: worker
+      ready: false
+      restartCount: 0
+      started: false
+      state:
+        waiting:
+          message: 'container has runAsNonRoot and image has non-numeric user (nonroot),
+            cannot verify user is non-root (pod: "worker-647f944fcf-4cdtv_debug-lab(7151b781-2285-4ef1-8ae1-19b5ac10c1fa)",
+            container: worker)'
+          reason: CreateContainerConfigError
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-28kqz
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 172.18.0.5
+    hostIPs:
+    - ip: 172.18.0.5
+    observedGeneration: 1
+    phase: Pending
+    podIP: 10.244.0.14
+    podIPs:
+    - ip: 10.244.0.14
+    qosClass: Burstable
+    resources:
+      limits:
+        cpu: 200m
+        memory: 128Mi
+      requests:
+        cpu: 50m
+        memory: 64Mi
+    startTime: "2026-10-09T15:40:30Z"
+kind: List
+metadata:
+  resourceVersion: ""
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ [7mFirst, inspect the namespace quota and the chart helper:[27m
+
+[7mBash[27m
+[7m￼[27m
+[7m￼[27m
+[A[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CFirst, inspect the namespace quota and the chart helper:
+
+Bash
+￼
+￼
+[A
+[?2004lFirst,: command not found
+Command 'Bash' not found, did you mean:
+  command 'sash' from deb sash (3.8-5)
+  command 'ash' from deb ash (0.5.12-6ubuntu1)
+  command 'mash' from deb mash (2.3+dfsg-6)
+  command 'bash' from deb bash (5.2.21-2ubuntu1)
+  command 'kash' from deb kanif (1.2.2-4)
+  command 'wash' from deb reaver (1.6.6-2)
+  command 'yash' from deb yash (2.55-2)
+  command 'dash' from deb dash (0.5.12-6ubuntu1)
+Try: sudo apt install <deb name>
+￼: command not found
+￼: command not found
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ [7mcat cluster-state/limits.yaml[27m
+[7mcat broken-chart/templates/_helpers.tpl[27m[A]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ cat cluster-state/limits.yaml
+cat broken-chart/templates/_helpers.tpl
+[?2004l# Part of the lab environment. DO NOT MODIFY — the grading harness re-applies
+# the pristine copy of everything in cluster-state/ before evaluating your
+# chart, so changes here cannot fix anything and will be flagged.
+#
+# This LimitRange mirrors the guardrails on our shared clusters: sane defaults
+# for pods that don't specify resources, and a hard per-container ceiling.
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: debug-lab-guardrails
+  namespace: debug-lab
+spec:
+  limits:
+    - type: Container
+      defaultRequest:
+        cpu: 50m
+        memory: 64Mi
+      default:
+        cpu: 200m
+        memory: 128Mi
+      max:
+        cpu: "1"
+        memory: 512Mi
+{{- define "lab.labels" -}}
+app.kubernetes.io/part-of: eb-debug-lab
+app.kubernetes.io/managed-by: {{ .Release.Service }}
+helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+{{- end }}
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ python3 <<'PY'
+from pathlib import Path
+
+chart = Path("broken-chart")
+if not chart.is_dir():
+    raise SystemExit("ERROR: broken-chart directory not found. Run this from the l.io/part-of: eb-debug-lab
+app.kubernetes.io/managed-by: {{ .Release.Service }}
+helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+{{- end }}
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ python3 <<'PY'
+from pathlib import Path
+
+chart = Path("broken-chart")
+if not chart.is_dir():
+    raise SystemExit("ERROR: broken-chart directory not found. Run this from the lab directory.")
+
+# Fix 1: Add a numeric UID to the five Deployments and migration Job.
+files = [
+    "backend.yaml",
+    "gateway.yaml",
+    "worker.yaml",
+    "reporter.yaml",
+    "metrics.yaml",
+    "migrate-job.yaml",
+]
+
+for filename in files:
+    path = chart / "templates" / filename
+    text = path.read_text()
+    updated = []
+    for line in text.splitlines(keepends=True):
+        updated.append(line)
+        if line.strip() == "runAsNonRoot: true":
+            indent = line[:len(line) - len(line.lstrip())]
+            if not any(x.strip().startswith("runAsUser:") for x in updated[-2:]):
+                updated.append(indent + "runAsUser: 10001\n")
+    path.write_text("".join(updated))
+
+# Fix 2: Jobs cannot use restartPolicy: Always.
+path = chart / "templates" / "migrate-job.yaml"
+text = path.read_text()
+if "restartPolicy: Always" not in text:
+    print("WARNING: restartPolicy: Always not found; inspect migrate-job.yaml")
+else:
+    path.write_text(text.replace("restartPolicy: Always", "restartPolicy: OnFailure"))
+
+# Fix 3: Gateway must contact the backend in debug-lab.
+path = chart / "values.yaml"
+text = path.read_text()
+old_url = "http://backend.default.svc:8080"
+new_url = "http://backend.debug-lab.svc:8080"
+if old_url not in text:
+    print("WARNING: Expected gateway URL not found in values.yaml")else:    path.write_text(text.replace(old_url, new_url))# Fix 4: Grant the reporter ServiceAccount the pod-listing permissions.path = chart / "templates" / "rbac.yaml"[7mtext = path.read_text()[27m[7mold_subject = """subjects:[27m[7m  - kind: ServiceAccount[27m[7m    name: default[27m[7m    namespace: {{ .Release.Namespace }}"""[27m[7mnew_subject = """subjects:[27m[7m  - kind: ServiceAccount[27m[7m    name: {{ .Values.reporter.serviceAccountName }}[27m[7m    namespace: {{ .Release.Namespace }}"""[27m[7mif old_subject not in text:[27m[7m    print("WARNING: Expected RoleBinding subject not found in rbac.yaml")[27m[7melse:[27m[7m    path.write_text(text.replace(old_subject, new_subject))[27m[7m# Fix 5: Metrics CPU values must stay within the cluster's 1-CPU limit.[27m[7mpath = chart / "values.yaml"[27m[7mtext = path.read_text()[27m[7mold_resources = """  resources:[27m[7m    requests:[27m[7m      cpu: "2"[27m[7m      memory: "64Mi"[27m[7m    limits:[27m[7m      cpu: "4"[27m[7m      memory: "128Mi" """[27m[7mnew_resources = """  resources:[27m[7m    requests:[27m[7m      cpu: "50m"[27m[7m      memory: "64Mi"[27m[7m    limits:[27m[7m      cpu: "200m"[27m[7m      memory: "128Mi" """[27m[7mif old_resources in text:[27m[7m    path.write_text(text.replace(old_resources, new_resources))[27m[7melse:[27m[7m    # Handle the common case where the final line has no trailing space.[27m[7m    old_resources = old_resources.rstrip()[27m[7m    if old_resources in text:[27m[7m        path.write_text(text.replace(old_resources, new_resources.rstrip()))[27m[7m    else:[27m[7m        print("WARNING: Metrics resource block not matched; edit metrics.resources manually.")[27m[7mprint("Finished applying attempted fixes 1–5. Review the diff before reinstalling.")[27m[7mPY[27mtext = path.read_text()old_subject = """subjects:  - kind: ServiceAccount    name: default    namespace: {{ .Release.Namespace }}"""new_subject = """subjects:  - kind: ServiceAccount    name: {{ .Values.reporter.serviceAccountName }}    name4Mi"    limits:      cpu: "200m"      memory: "128Mi" """if old_resources in text:    path.write_text(text.replace(old_resources, new_resources))else:    # Handle the common case where the final line has no trailing space.    old_resources = old_resources.rstrip()    if old_resources in text:        path.write_text(text.replace(old_resources, new_resources.rstrip()))    else:        print("WARNING: Metrics resource block not matched; edit metrics.resources manually.")print("Finished applying attempted fixes 1–5. Review the diff before reinstalling.")PY
+[?2004lFinished applying attempted fixes 1–5. Review the diff before reinstalling.
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ python3 <<'PY'
+from pathlib import Path
+
+chart = Path("broken-chart")
+if not chart.is_dir():
+    raise SystemExit("ERROR: broken-chart directory not found. Run this from the lab directory.")
+
+# Fix 1: Add a numeric UID to the five Deployments and migration Job.
+files = [
+    "backend.yaml",
+    "gateway.yaml",
+    "worker.yaml",
+    "reporter.yaml",
+    "metrics.yaml",
+    "migrate-job.yaml",
+]
+
+for filename in files:
+    path = chart / "templates" / filename
+    text = path.read_text()
+    updated = []
+    for line in text.splitlines(keepends=True):
+        updated.append(line)
+        if line.strip() == "runAsNonRoot: true":
+            indent = line[:len(line) - len(line.lstrip())]
+            if not any(x.strip().startswith("runAsUser:") for x in updated[-2:]):
+                updated.append(indent + "runAsUser: 10001\n")
+    path.write_text("".join(updated))
+
+# Fix 2: Jobs cannot use restartPolicy: Always.
+path = chart / "templates" / "migrate-job.yaml"
+text = path.read_text()
+if "restartPolicy: Always" not in text:
+    print("WARNING: restartPolicy: Always not found; inspect migrate-job.yaml")
+else:
+    path.write_text(text.replace("restartPolicy: Always", "restartPolicy: OnFailure"))
+
+# Fix 3: Gateway must contact the backend in debug-lab.
+path = chart / "values.yaml"
+text = path.read_text()
+old_url = "http://backend.default.svc:8080"
+new_url = "http://backend.debug-lab.svc:8080"
+if old_url not in text:
+    print("WARNING: Expected gateway URL not found in values.yaml")else:    path.write_text(text.replace(old_url, new_url))# Fix 4: Grant the reporter ServiceAccount the pod-listing permissions.path = chart / "templates" / "rbac.yaml"text = path.read_text()old_subject = """subjects:  - kind: ServiceAccount    name: default    namespace: {{ .Release.Namespace }}"""new_subject = """subjects:  - kind: ServiceAccount    name: {{ .Values.reporter.serviceAccountName }}    namespace: {{ .Release.Namespace }}"""if old_subject not in text:    print("WARNING: Expected RoleBinding subject not found in rbac.yaml")else:    path.write_text(text.replace(old_subject, new_subject))# Fix 5: Metrics CPU values must stay within the cluster's 1-CPU limit.path = chart / "values.yaml"text = path.read_text()old_resources = """  resources:    requests:      cpu: "2"      memory: "64Mi"    limits:      cpu: "4"      memory: "128Mi" """new_resources = """  resources:    requests:      cpu: "50m"      memory: "64Mi"    limits:      cpu: "200m"      memory: "128Mi" """if old_resources in text:    path.write_text(text.replace(old_resources, new_resources))else:    # Handle the common case where the final line has no trailing space.    old_resources = old_resources.rstrip()    if old_resources in text:        path.write_text(text.replace(old_resources, new_resources.rstrip()))    else:        print("WARNING: Metrics resource block not matched; edit metrics.resources manually.")print("Finished applying attempted fixes 1–5. Review the diff before reinstalling.")PY[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[Anew_resources))else:    # Handle the common case where the final line has no trailing space.    old_resources = old_resources.rstrip()    if old_resources in text:        path.write_text(text.replace(old_resources, new_resources.rstrip()))    else:        print("WARNING: Metrics resource block not matched; edit metrics.resources manually.")print("Finished applying attempted fixes 1–5. Review the diff before reinstalling.")PY[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C^C[?2004l[?2004h[?2004l
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ ^C[?2004l[?2004h[?2004l
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ ^C[?2004l[?2004h[?2004l
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ [7mhelm lint broken-chart[27m
+[7mhelm template debug-lab broken-chart -n debug-lab[27m[A]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ helm lint broken-chart
+helm template debug-lab broken-chart -n debug-lab
+[?2004l==> Linting broken-chart
+[INFO] Chart.yaml: icon is recommended
+
+1 chart(s) linted, 0 chart(s) failed
+---
+# Source: debug-lab/templates/rbac.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: reporter
+  labels:
+    app: reporter
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+---
+# Source: debug-lab/templates/rbac.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: reporter-read
+  labels:
+    app: reporter
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list"]
+---
+# Source: debug-lab/templates/rbac.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: reporter-read
+  labels:
+    app: reporter
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: reporter-read
+subjects:
+  - kind: ServiceAccount
+    name: reporter
+    namespace: debug-lab
+
+---
+# Source: debug-lab/templates/backend.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  labels:
+    app: backend
+    app.kubernetes.io/part-of: eb- targetPort: 8080
+
+---
+# Source: debug-lab/templates/reporter.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: reporter
+  labels:
+    app: reporter
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+spec:
+  selector:
+    app: reporter
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+
+---
+# Source: debug-lab/templates/backend.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    app: backend
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+        app.kubernetes.io/part-of: eb-debug-lab
+        app.kubernetes.io/managed-by: Helm
+        helm.sh/chart: debug-lab-2.0.0
+    spec:
+      containers:
+        - name: backend
+          image: "docker.io/ebinterview/eb-debug-app:1.0.1"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: APP_MODE
+              value: "api"
+            - name: APP_NAME
+              value: "backend"
+            - name: VERSION
+              value: "2.0.0"
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            timeoutSeconds: 3
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            runAsUser: 10001
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            limits:
+              cpu: 200m
+              memory: 128Mi
+            requests:
+              cpu: 50m
+              memory: 64Mi
+---
+# Source: debug-lab/templates/gateway.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway
+  labels:
+    app: gateway
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gateway
+  template:
+    metadata:
+      labels:
+        app: gateway
+        app.kubernetes.io/part-of: eb-debug-lab
+        app.kubernetes.io/managed-by: Helm
+        helm.sh/chart: debug-lab-2.0.0
+    spec:
+      containers:
+        - name: gateway
+          image: "docker.io/ebinterview/eb-debug-app:1.0.1"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: APP_MODE
+              value: "gateway"
+            - name: APP_NAME
+              value: "gateway"
+            - name: BACKEND_URL
+              value: "http://backend.debug-lab.svc:8080"
+            - name: VERSION
+              value: "2.0.0"
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            timeoutSeconds: 3
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            runAsUser: 10001
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            limits:
+              cpu: 200m
+              memory: 128Mi
+            requests:
+              cpu: 50m
+              memory: 64Mi
+---
+# Source: debug-lab/templates/metrics.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: metrics
+  labels:
+    app: metrics
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: metrics
+  template:
+    metadata:
+      labels:
+        app: metrics
+        app.kubernetes.io/part-of: eb-debug-lab
+        app.kubernetes.io/managed-by: Helm
+        helm.sh/chart: debug-lab-2.0.0
+    spec:
+      containers:
+        - name: metrics
+          image: "docker.io/ebinterview/eb-debug-app:1.0.1"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: APP_MODE
+              value: "api"
+            - name: APP_NAME
+              value: "metrics"
+            - name: VERSION
+              value: "2.0.0"
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            timeoutSeconds: 3
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            runAsUser: 10001
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            limits:
+              cpu: 200m
+              memory: 128Mi
+            requests:
+              cpu: 50m
+              memory: 64Mi
+
+---
+# Source: debug-lab/templates/reporter.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reporter
+  labels:
+    app: reporter
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reporter
+  template:
+    metadata:
+      labels:
+        app: reporter
+        app.kubernetes.io/part-of: eb-debug-lab
+        app.kubernetes.io/managed-by: Helm
+        helm.sh/chart: debug-lab-2.0.0
+    spec:
+      serviceAccountName: reporter
+      containers:
+        - name: reporter
+          image: "docker.io/ebinterview/eb-debug-app:1.0.1"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: APP_MODE
+              value: "reporter"
+            - name: APP_NAME
+              value: "reporter"
+            - name: VERSION
+              value: "2.0.0"
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            timeoutSeconds: 3
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            runAsUser: 10001
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            limits:
+              cpu: 200m
+              memory: 128Mi
+            requests:
+              cpu: 50m
+              memory: 64Mi
+---
+# Source: debug-lab/templates/worker.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker
+  labels:
+    app: worker
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels:
+        app: worker
+        app.kubernetes.io/part-of: eb-debug-lab
+        app.kubernetes.io/managed-by: Helm
+        helm.sh/chart: debug-lab-2.0.0
+    spec:
+      containers:
+        - name: worker
+          image: "docker.io/ebinterview/eb-debug-app:1.0.1"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: APP_MODE
+              value: "worker"
+            - name: APP_NAME
+              value: "worker"
+            - name: VERSION
+              value: "2.0.0"
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            timeoutSeconds: 3
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            runAsUser: 10001
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            limits:
+              cpu: 200m
+              memory: 128Mi
+            requests:
+              cpu: 50m
+              memory: 64Mi
+
+---
+# Source: debug-lab/templates/migrate-job.yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: migrate
+  labels:
+    app: migrate
+    app.kubernetes.io/part-of: eb-debug-lab
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: debug-lab-2.0.0
+spec:
+  backoffLimit: 2
+  template:
+    metadata:
+      labels:
+        app: migrate
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: migrate
+          image: "docker.io/ebinterview/eb-debug-app:1.0.1"
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: APP_MODE
+              value: "migrate"
+            - name: APP_NAME
+              value: "migrate"
+            - name: VERSION
+              value: "2.0.0"
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            runAsUser: 10001
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "200m"
+              memory: "128Mi"
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ [7m./scenario.sh up[27m./scenario.sh up
+[?2004l==> applying cluster environment (cluster-state/)
+namespace/debug-lab unchanged
+Error from server (BadRequest): error when creating "cluster-state/limits.yaml": LimitRange in version "v1" cannot be handled as a LimitRange: strict decoding error: unknown field "metrics"
+==> installing the broken chart
+Release "debug-lab" has been upgraded. Happy Helming!
+NAME: debug-lab
+LAST DEPLOYED: Fri Oct  9 22:07:21 2026
+NAMESPACE: [36mdebug-lab[0m
+STATUS: [32mdeployed[0m
+REVISION: 2
+DESCRIPTION: Upgrade complete
+TEST SUITE: None
+NOTES:
+debug-lab installed into namespace debug-lab.
+
+Goal state:
+  * migrate Job: Completed
+  * backend, gateway, worker, reporter, metrics: all pods Running and 1/1 Ready
+  * gateway /status reports {"self":"ok","backend":"ok",...}
+
+Check your progress at any time:
+  ./scenario.sh verify
+
+Lab is (partially) installed. Investigate with kubectl, fix the chart,
+re-run './scenario.sh up' to apply your fixes, and './scenario.sh verify'
+to check progress.
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ [7mkubectl -n debug-lab get pods[27m
+[7mkubectl -n debug-lab get jobs[27m
+[7mkubectl -n debug-lab get events --sort-by=.lastTimestamp[27m
+[7m./scenario.sh verify[27m[A[A[A]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ kubectl -n debug-lab get pods
+kubectl -n debug-lab get jobs
+kubectl -n debug-lab get events --sort-by=.lastTimestamp
+./scenario.sh verify
+[?2004lNAME                        READY   STATUS                       RESTARTS     AGE
+backend-58f74574f8-bf9m8    0/1     Running                      0            22s
+backend-6547956699-m7tzx    0/1     CreateContainerConfigError   0            57m
+gateway-5985fcd66-wz7kd     0/1     Running                      0            22s
+gateway-84b944b5d7-8mbzk    0/1     CreateContainerConfigError   0            57m
+metrics-64666cf9ff-hmwnv    0/1     Running                      0            22s
+metrics-7687898774-knxhz    0/1     CreateContainerConfigError   0            57m
+migrate-plwgz               0/1     Completed                    0            21s
+reporter-59467ccdd9-ccf9f   0/1     CreateContainerConfigError   0            57m
+reporter-74bc679f4d-fgvmp   0/1     Running                      0            22s
+worker-647f944fcf-4cdtv     0/1     CreateContainerConfigError   0            57m
+worker-7bcc7f4c74-266ln     0/1     CrashLoopBackOff             2 (9s ago)   21s
+NAME      STATUS     COMPLETIONS   DURATION   AGE
+migrate   Complete   1/1           6s         21s
+LAST SEEN   TYPE      REASON              OBJECT                           MESSAGE
+57m         Normal    Scheduled           pod/gateway-84b944b5d7-8mbzk     Successfully assigned debug-lab/gateway-84b944b5d7-8mbzk to demo-control-plane
+57m         Normal    SuccessfulCreate    replicaset/metrics-7687898774    Created pod: metrics-7687898774-knxhz
+57m         Normal    SuccessfulCreate    replicaset/worker-647f944fcf     Created pod: worker-647f944fcf-4cdtv
+57m         Normal    ScalingReplicaSet   deployment/worker                Scaled up replica set worker-647f944fcf from 0 to 1
+57m         Normal    Scheduled           pod/worker-647f944fcf-4cdtv      Successfully assigned debug-lab/worker-647f944fcf-4cdtv to demo-control-plane
+57m         Normal    ScalingReplicaSet   deployment/metrics               Scaled up replica set metrics-7687898774 from 0 to 1
+57m         Normal    Scheduled           pod/backend-6547956699-m7tzx     Successfully assigned debug-lab/backend-6547956699-m7tzx to demo-control-plane
+57m         Normal    ScalingReplicaSet   deployment/gateway               Scaled up replica set gateway-84b944b5d7 from 0 to 1
+57m         Normal    ScalingReplicaSet   deployment/reporter              Scaled up replica set reporter-59467ccdd9 from 0 to 1
+57m         Normal    Scheduled           pod/reporter-59467ccdd9-ccf9f    Successfully assigned debug-lab/reporter-59467ccdd9-ccf9f to demo-control-plane
+57m         Normal    SuccessfulCreate    replicaset/gateway-84b944b5d7    Created pod: gateway-84b944b5d7-8mbzk
+57m         Normal    SuccessfulCreate    replicaset/backend-6547956699    Created pod: backend-6547956699-m7tzx
+57m         Normal    ScalingReplicaSet   deployment/backend               Scaled up replica set backend-6547956699 from 0 to 1
+57m         Normal    Pulling             pod/metrics-7687898774-knxhz     Pulling image "docker.io/ebinterview/eb-debug-app:1.0.1"
+57m         Normal    Scheduled           pod/metrics-7687898774-knxhz     Successfully assigned debug-lab/metrics-7687898774-knxhz to demo-control-plane
+57m         Normal    SuccessfulCreate    replicaset/reporter-59467ccdd9   Created pod: reporter-59467ccdd9-ccf9f
+57m         Normal    Pulling             pod/backend-6547956699-m7tzx     Pulling image "docker.io/ebinterview/eb-debug-app:1.0.1"
+57m         Normal    Pulling             pod/gateway-84b944b5d7-8mbzk     Pulling image "docker.io/ebinterview/eb-debug-app:1.0.1"
+57m         Normal    Pulling             pod/worker-647f944fcf-4cdtv      Pulling image "docker.io/ebinterview/eb-debug-app:1.0.1"
+57m         Normal    Pulling             pod/reporter-59467ccdd9-ccf9f    Pulling image "docker.io/ebinterview/eb-debug-app:1.0.1"
+57m         Normal    Pulled              pod/metrics-7687898774-knxhz     Successfully pulled image "docker.io/ebinterview/eb-debug-app:1.0.1" in 4.972s (4.972s including waiting). Image size: 3279587 bytes.
+57m         Normal    Pulled              pod/reporter-59467ccdd9-ccf9f    Successfully pulled image "docker.io/ebinterview/eb-debug-app:1.0.1" in 1.654s (6.379s including waiting). Image size: 3279587 bytes.
+57m         Normal    Pulled              pod/gateway-84b944b5d7-8mbzk     Successfully pulled image "docker.io/ebinterview/eb-debug-app:1.0.1" in 1.681s (8.06s including waiting). Image size: 3279587 bytes.
+57m         Normal    Pulled              pod/worker-647f944fcf-4cdtv      Successfully pulled image "docker.io/ebinterview/eb-debug-app:1.0.1" in 2.227s (10.287s including waiting). Image size: 3279587 bytes.
+57m         Normal    Pulled              pod/backend-6547956699-m7tzx     Successfully pulled image "docker.io/ebinterview/eb-debug-app:1.0.1" in 1.342s (11.629s including waiting). Image size: 3279587 bytes.
+56m         Normal    Scheduled           pod/eb-verify-probe              Successfully assigned debug-lab/eb-verify-probe to demo-control-plane
+56m         Normal    Pulling             pod/eb-verify-probe              Pulling image "busybox:1.36"
+56m         Normal    Pulled              pod/eb-verify-probe              Successfully pulled image "busybox:1.36" in 4.572s (4.572s including waiting). Image size: 2217006 bytes.
+56m         Normal    Started             pod/eb-verify-probe              Container started
+56m         Normal    Created             pod/eb-verify-probe              Container created
+2m11s       Normal    Pulled              pod/worker-647f944fcf-4cdtv      Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine and can be accessed by the pod
+2m8s        Normal    Pulled              pod/metrics-7687898774-knxhz     Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine and can be accessed by the pod
+2m8s        Normal    Pulled              pod/backend-6547956699-m7tzx     Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine and can be accessed by the pod
+2m4s        Normal    Pulled              pod/gateway-84b944b5d7-8mbzk     Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine and can be accessed by the pod
+2m4s        Warning   Failed              pod/gateway-84b944b5d7-8mbzk     Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "gateway-84b944b5d7-8mbzk_debug-lab(afcbd52d-883a-438a-a6dc-d983c62a7b9e)", container: gateway)
+2m2s        Normal    Pulled              pod/reporter-59467ccdd9-ccf9f    Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine and can be accessed by the pod
+2m2s        Warning   Failed              pod/reporter-59467ccdd9-ccf9f    Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "reporter-59467ccdd9-ccf9f_debug-lab(56e5ecdd-2759-47ca-afce-b4d0d5824121)", container: reporter)
+2m          Warning   Failed              pod/worker-647f944fcf-4cdtv      Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "worker-647f944fcf-4cdtv_debug-lab(7151b781-2285-4ef1-8ae1-19b5ac10c1fa)", container: worker)
+116s        Warning   Failed              pod/backend-6547956699-m7tzx     Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "backend-6547956699-m7tzx_debug-lab(42902f8f-8003-4a5c-a3bd-f5f014f2f7e4)", container: backend)
+114s        Warning   Failed              pod/metrics-7687898774-knxhz     Error: container has runAsNonRoot and image has non-numeric user (nonroot), cannot verify user is non-root (pod: "metrics-7687898774-knxhz_debug-lab(9430ca2c-6943-46cd-8ba7-4c0ae0e88a17)", container: metrics)
+22s         Normal    ScalingReplicaSet   deployment/gateway               Scaled up replica set gateway-5985fcd66 from 0 to 1
+22s         Normal    ScalingReplicaSet   deployment/backend               Scaled up replica set backend-58f74574f8 from 0 to 1
+22s         Normal    SuccessfulCreate    replicaset/gateway-5985fcd66     Created pod: gateway-5985fcd66-wz7kd
+22s         Normal    SuccessfulCreate    replicaset/metrics-64666cf9ff    Created pod: metrics-64666cf9ff-hmwnv
+22s         Normal    SuccessfulCreate    replicaset/reporter-74bc679f4d   Created pod: reporter-74bc679f4d-fgvmp
+22s         Normal    SuccessfulCreate    replicaset/backendom 0 to 1
+22s         Normal    ScalingReplicaSet   deployment/backend               Scaled up replica set backend-58f74574f8 from 0 to 1
+22s         Normal    SuccessfulCreate    replicaset/gateway-5985fcd66     Created pod: gateway-5985fcd66-wz7kd
+22s         Normal    SuccessfulCreate    replicaset/metrics-64666cf9ff    Created pod: metrics-64666cf9ff-hmwnv
+22s         Normal    SuccessfulCreate    replicaset/reporter-74bc679f4d   Created pod: reporter-74bc679f4d-fgvmp
+22s         Normal    SuccessfulCreate    replicaset/backend-58f74574f8    Created pod: backend-58f74574f8-bf9m8
+22s         Normal    ScalingReplicaSet   deployment/metrics               Scaled up replica set metrics-64666cf9ff from 0 to 1
+22s         Normal    ScalingReplicaSet   deployment/reporter              Scaled up replica set reporter-74bc679f4d from 0 to 1
+22s         Normal    Scheduled           pod/metrics-64666cf9ff-hmwnv     Successfully assigned debug-lab/metrics-64666cf9ff-hmwnv to demo-control-plane
+22s         Normal    Scheduled           pod/backend-58f74574f8-bf9m8     Successfully assigned debug-lab/backend-58f74574f8-bf9m8 to demo-control-plane
+22s         Normal    Scheduled           pod/gateway-5985fcd66-wz7kd      Successfully assigned debug-lab/gateway-5985fcd66-wz7kd to demo-control-plane
+21s         Normal    Pulled              pod/gateway-5985fcd66-wz7kd      Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine and can be accessed by the pod
+21s         Normal    Pulled              pod/metrics-64666cf9ff-hmwnv     Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine and can be accessed by the pod
+21s         Normal    SuccessfulCreate    job/migrate                      Created pod: migrate-plwgz
+21s         Normal    ScalingReplicaSet   deployment/worker                Scaled up replica set worker-7bcc7f4c74 from 0 to 1
+21s         Normal    Created             pod/migrate-plwgz                Container created
+21s         Normal    Pulled              pod/migrate-plwgz                Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine and can be accessed by the pod
+21s         Normal    Scheduled           pod/migrate-plwgz                Successfully assigned debug-lab/migrate-plwgz to demo-control-plane
+21s         Normal    Pulled              pod/backend-58f74574f8-bf9m8     Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine and can be accessed by the pod
+21s         Normal    Scheduled           pod/reporter-74bc679f4d-fgvmp    Successfully assigned debug-lab/reporter-74bc679f4d-fgvmp to demo-control-plane
+21s         Normal    Pulled              pod/reporter-74bc679f4d-fgvmp    Container image "docker.io/ebinterview/eb-debug-app:1.0.1" already present on machine and can be accessed by the pod
+21s         Normal    Created             pod/reporter-74bc679f4d-fgvmp    Container created
+21s         Normal    SuccessfulCreate    replicaset/worker-7bcc7f4c74     Created pod: worker-7bcc7f4c74-266ln
+21s         Normal    Scheduled           pod/worker-7bcc7f4c74-266ln      Successfully assigned debug-lab/worker-7bcc7f4c74-266ln to demo-control-plane
+21s         Normal    Started             pod/metrics-64666cf9ff-hmwnv     Container started
+21s         Normal    Created             pod/metrics-64666cf9ff-hmwnv     Container created
+21s         Normal    Created             pod/backend-58f74574f8-bf9m8     Container created
+21s         Normal    Started             pod/backend-58f74574f8-bf9m8     Container started
+21s         Normal    Started             pod/gateway-5985fcd66-wz7kd      Container started
+21s         Normal    Created             pod/gateway-5985fcd66-wz7kd      Container created
+20s         Normal    Started             pod/reporter-74bc679f4d-fgvmp    Container started
+20s         Normal    Started             pod/migrate-plwgz                Container started
+15s         Normal    Completed           job/migrate                     66ln_debug-lab(397d2569-53b0-4dcc-a592-fb80c52c0a22)
+0s          Warning   Unhealthy           pod/backend-58f74574f8-bf9m8     Readiness probe failed: Get "http://10.244.0.17:8080/healthz": dial tcp 10.244.0.17:8080: connect: connection refused
+0s          Warning   Unhealthy           pod/gateway-5985fcd66-wz7kd      Readiness probe failed: Get "http://10.244.0.16:8080/healthz": dial tcp 10.244.0.16:8080: connect: connection refused
+0s          Warning   Unhealthy           pod/reporter-74bc679f4d-fgvmp    Readiness probe failed: Get "http://10.244.0.19:8080/healthz": dial tcp 10.244.0.19:8080: connect: connection refused
+0s          Warning   Unhealthy           pod/metrics-64666cf9ff-hmwnv     Readiness probe failed: Get "http://10.244.0.18:8080/healthz": dial tcp 10.244.0.18:8080: connect: connection refused
+==> verifying goal state in namespace debug-lab
+  [32mPASS[0m  migrate Job completed
+  [31mFAIL[0m  deployment backend: 0/1 ready
+  [31mFAIL[0m  deployment gateway: 0/1 ready
+  [31mFAIL[0m  deployment worker: 0/1 ready
+  [31mFAIL[0m  deployment reporter: 0/1 ready
+  [31mFAIL[0m  deployment metrics: 0/1 ready
+  [31mFAIL[0m  1 pod(s) in CrashLoopBackOff
+  [32mPASS[0m  ServiceAccount debug-lab/reporter can list pods
+  [31mFAIL[0m  backend does not answer on http://backend:8080/healthz
+  [31mFAIL[0m  gateway /status does not report backend=ok
+  [31mFAIL[0m  reporter /report does not return a pod count
+
+[31m9 check(s) failing[0m, 2 passing. Keep digging — every failure is a symptom.
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ [7mgit diff -- cluster-state/limits.yaml[27m
+[7msed -n '1,100p' cluster-state/limits.yaml[27m[A]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ git diff -- cluster-state/limits.yaml
+sed -n '1,100p' cluster-state/limits.yaml
+[?2004l[?1h=[1mdiff --git a/lab/cluster-state/limits.yaml b/lab/cluster-state/limits.yaml[m[m
+[1mindex 9059b4d..e2ba100 100644[m[m
+[1m--- a/lab/cluster-state/limits.yaml[m[m
+[1m+++ b/lab/cluster-state/limits.yaml[m[m
+[36m@@ -21,3 +21,19 @@[m [mspec:[m[m
+       max:[m[m
+         cpu: "1"[m[m
+         memory: 512Mi[m[m
+[32m+[m[m
+[32m+[m[m
+[32m+[m[m
+[32m+[m[32mmetrics:[m[m
+[32m+[m[32m  replicas: 1[m[m
+[32m+[m[32m  env:[m[m
+[32m+[m[32m    APP_MODE: "api"[m[m
+[32m+[m[32m    APP_NAME: "metrics"[m[m
+[32m+[m[32m    VERSION: "2.0.0"[m[m
+[32m+[m[32m  resources:[m[m
+[32m+[m[32m    requests:[m[m
+[32m+[m[32m      cpu: "50m"[m[m
+[32m+[m[32m      memory: "64Mi"[m[m
+[32m+[m[32m    limits:[m[m
+[32m+[m[32m      cpu: "200m"[m[m
+[32m+[m[32m      memory: "128Mi"[m[m
+[K[?1l># Part of the lab environment. DO NOT MODIFY — the grading harness re-applies
+# the pristine copy of everything in cluster-state/ before evaluating your
+# chart, so changes here cannot fix anything and will be flagged.
+#
+# This LimitRange mirrors the guardrails on our shared clusters: sane defaults
+# for pods that don't specify resources, and a hard per-container ceiling.
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: debug-lab-guardrails
+  namespace: debug-lab
+spec:
+  limits:
+    - type: Container
+      defaultRequest:
+        cpu: 50m
+        memory: 64Mi
+      default:
+        cpu: 200m
+        memory: 128Mi
+      max:
+        cpu: "1"
+        memory: 512Mi
+
+
+
+metrics:
+  replicas: 1
+  env:
+    APP_MODE: "api"
+    APP_NAME: "metrics"
+    VERSION: "2.0.0"
+  resources:
+    requests:
+      cpu: "50m"
+      memory: "64Mi"
+    limits:
+      cpu: "200m"
+      memory: "128Mi"
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npcitype: Container
+      defaultRequest:
+        cpu: 50m
+        memory: 64Mi
+      default:
+        cpu: 200m
+        memory: 128Mi
+      max:
+        cpu: "1"
+        memory: 512Mi
+
+
+
+metrics:
+  replicas: 1
+  env:
+    APP_MODE: "api"
+    APP_NAME: "metrics"
+    VERSION: "2.0.0"
+  resources:
+    requests:
+      cpu: "50m"
+      memory: "64Mi"
+    limits:
+      cpu: "200m"
+      memory: "128Mi"
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ [7mgit diff -- broken-chart/[27mgit diff -- broken-chart/
+[?2004l[?1h=[1mdiff --git a/lab/broken-chart/templates/backend.yaml b/lab/broken-chart/templates/backend.yaml[m[m
+[1mindex 99938bd..0e781ab 100644[m[m
+[1m--- a/lab/broken-chart/templates/backend.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/backend.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/gateway.yaml b/lab/broken-chart/templates/gateway.yaml[m[m
+[1mindex 151abb3..74ae3f9 100644[m[m
+[1m--- a/lab/broken-chart/templates/gateway.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/gateway.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/metrics.yaml b/lab/broken-chart/templates/metrics.yaml[m[m
+[1mindex 562be78..6200bf1 100644[m[m
+[1m--- a/lab/broken-chart/templates/metrics.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/metrics.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/migrate-job.yaml b/lab/broken-chart/templates/migrate-job.yaml[m[m
+[1mindex e9d5aa2..1cac93f 100644[m[m
+[1m--- a/lab/broken-chart/templates/migrate-job.yaml[m[m
+:[K[H[2J[H[H[2J[H[1mdiff --git a/lab/broken-chart/templates/backend.yaml b/lab/broken-chart/templates/backend.yaml[m[m
+[1mindex 99938bd..0e781ab 100644[m[m
+[1m--- a/lab/broken-chart/templates/backend.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/backend.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/gateway.yaml b/lab/broken-chart/templates/gateway.yaml[m[m
+[1mindex 151abb3..74ae3f9 100644[m[m
+[1m--- a/lab/broken-chart/templates/gateway.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/gateway.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+     m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/migrate-job.yaml b/lab/broken-chart/templates/migrate-job.yaml[m[m
+[1mindex e9d5aa2..1cac93f 100644[m[m
+[1m--- a/lab/broken-chart/templates/migrate-job.yaml[m[m
+:[K[K:[K[H[2J[H[H[2J[H[1mdiff --git a/lab/broken-chart/templates/backend.yaml b/lab/broken-chart/templates/backend.yaml[m[m
+[1mindex 99938bd..0e781ab 100644[m[m
+[1m--- a/lab/broken-chart/templates/backend.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/backend.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/gateway.yaml b/lab/broken-chart/templates/gateway.yaml[m[m
+[1mindex 151abb3..74ae3f9 100644[m[m
+[1m--- a/lab/broken-chart/templates/gateway.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/gateway.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/metrics.yaml b/lab/broken-chart/templates/metrics.yaml[m[m
+[1mindex 562be78..6200bf1 100644[m[m
+[1m--- a/lab/broken-chart/templates/metrics.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/metrics.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/migrate-job.yaml b/lab/broken-chart/templates/migrate-job.yaml[m[m
+[1mindex e9d5aa2..1cac93f 100644[m[m
+[1m--- a/lab/broken-chart/templates/migrate-job.yaml[m[m
+:[K[H[2J[H[H[2J[H[1mdiff --git a/lab/broken-chart/templates/backend.yaml b/lab/broken-chart/templates/backend.yaml[m[m
+[1mindex 99938bd..0e781ab 100644[m[m
+[1m--- a/lab/broken-chart/templates/backend.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/backend.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/gateway.yaml b/lab/broken-chart/templates/gateway.yaml[m[m
+[1mindex 151abb3..74ae3f9 100644[m[m
+[1m--- a/lab/broken-chart/templates/gateway.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/gateway.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/metrics.yaml b/lab/broken-chart/templates/metrics.yaml[m[m
+[1mindex 562be78..6200bf1 100644[m[m
+[1m--- a/lab/broken-chart/templates/metrics.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/metrics.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/migrate-job.yaml b/lab/broken-chart/templates/migrate-job.yaml[m[m
+[1mindex e9d5aa2..1cac93f 100644[m[m
+[1m--- a/lab/broken-chart/templates/migrate-job.yaml[m[m
+:[K[H[2J[H[H[2J[H[1mdiff --git a/lab/broken-chart/templates/backend.yaml b/lab/broken-chart/templates/backend.yaml[m[m
+[1mindex 99938bd..0e781ab 100644[m[m
+[1m--- a/lab/broken-chart/templates/backend.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/backend.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/gateway.yaml b/lab/broken-chart/templates/gateway.yaml[m[m
+[1mindex 151abb3..74ae3f9 100644[m[m
+[1m--- a/lab/broken-chart/templates/gateway.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/gateway.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/metrics.yaml b/lab/broken-chart/templates/metrics.yaml[m[m
+[1mindex 562be78..6200bf1 100644[m[m
+[1m--- a/lab/broken-chart/templates/metrics.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/metrics.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/migrate-job.yaml b/lab/broken-chart/templates/migrate-job.yaml[m[m
+[1mindex e9d5aa2..1cac93f 100644[m[m
+[1m--- a/lab/broken-chart/templates/migrate-job.yaml[m[m
+:[K[K[1m+++ b/lab/broken-chart/templates/migrate-job.yaml[m[m
+[36m@@ -13,7 +13,7 @@[m [mspec:[m[m
+       labels:[m[m
+         app: migrate[m[m
+     spec:[m[m
+[31m-      restartPolicy: Always[m[m
+[32m+[m[32m      restartPolicy: OnFailure[m[m
+       containers:[m[m
+         - name: migrate[m[m
+           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"[m[m
+[36m@@ -27,6 +27,8 @@[m [mspec:[m[m
+               value: "2.0.0"[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/rbac.yaml b/lab/broken-chart/templates/rbac.yaml[m[m
+[1mindex fb4b7dc..2091b62 100644[m[m
+[1m--- a/lab/broken-chart/templates/rbac.yaml[m[m
+:[K[K[1m+++ b/lab/broken-chart/templates/rbac.yaml[m[m
+[36m@@ -31,5 +31,5 @@[m [mroleRef:[m[m
+   name: reporter-read[m[m
+ subjects:[m[m
+   - m
+[32m+[m[m
+[32m+[m[m
+[32m+[m[32mmetrics:[m[m
+[32m+[m[32m  replicas: 1[m[m
+[32m+[m[32m  env:[m[m
+[32m+[m[32m    APP_MODE: "api"[m[m
+[32m+[m[32m    APP_NAME: "metrics"[m[m
+[32m+[m[32m    VERSION: "2.0.0"[m[m
+[32m+[m[32m  resources:[m[m
+[32m+[m[32m    requests:[m[m
+[32m+[m[32m      cpu: "50m"[m[m
+[32m+[m[32m      memory: "64Mi"[m[m
+[32m+[m[32m    limits:[m[m
+[32m+[m[32m      cpu: "200m"[m[m
+[32m+[m[32m      memory: "128Mi"[m[m
+[K[?1l># Part of the lab environment. DO NOT MODIFY — the grading harness re-applies
+# the pristine copy of everything in cluster-state/ before evaluating your
+# chart, so changes here cannot fix anything and will be flagged.
+#
+# This LimitRange mirrors the guardrails on our shared clusters: sane defaults
+# for pods that don't specify resources, and a hard per-container ceiling.
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: debug-lab-guardrails
+  namespace: debug-lab
+spec:
+  limits:
+    - type: Container
+      defaultRequest:
+        cpu: 50m
+        memory: 64Mi
+      default:
+        cpu: 200m
+        memory: 128Mi
+      max:
+        cpu: "1"
+        memory: 512Mi
+
+
+
+metrics:
+  replicas: 1
+  env:
+    APP_MODE: "api"
+    APP_NAME: "metrics"
+    VERSION: "2.0.0"
+  resources:
+    requests:
+      cpu: "50m"
+      memory: "64Mi"
+    limits:
+      cpu: "200m"
+      memory: "128Mi"
+[?2004h]0;dhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub: ~/Downloads/enterprise-bot-assesment/lab[01;32mdhananjay@npci-admin-ThinkBook-14-G2-ITL-Ub[00m:[01;34m~/Downloads/enterprise-bot-assesment/lab[00m$ [7mgit diff -- broken-chart/[27mgit diff -- broken-chart/
+[?2004l[?1h=[1mdiff --git a/lab/broken-chart/templates/backend.yaml b/lab/broken-chart/templates/backend.yaml[m[m
+[1mindex 99938bd..0e781ab 100644[m[m
+[1m--- a/lab/broken-chart/templates/backend.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/backend.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/gateway.yaml b/lab/broken-chart/templates/gateway.yaml[m[m
+[1mindex 151abb3..74ae3f9 100644[m[m
+[1m--- a/lab/broken-chart/templates/gateway.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/gateway.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/metrics.yaml b/lab/broken-chart/templates/metrics.yaml[m[m
+[1mindex 562be78..6200bf1 100644[m[m
+[1m--- a/lab/broken-chart/templates/metrics.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/metrics.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/migrate-job.yaml b/lab/broken-chart/templates/migrate-job.yaml[m[m
+[1mindex e9d5aa2..1cac93f 100644[m[m
+[1m--- a/lab/broken-chart/templates/migrate-job.yaml[m[m
+:[K[H[2J[H[H[2J[H[1mdiff --git a/lab/broken-chart/templates/backend.yaml b/lab/broken-chart/templates/backend.yaml[m[m
+[1mindex 99938bd..0e781ab 100644[m[m
+[1m--- a/lab/broken-chart/templates/backend.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/backend.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/gateway.yaml b/lab/broken-chart/templates/gateway.yaml[m[m
+[1mindex 151abb3..74ae3f9 100644[m[m
+[1m--- a/lab/broken-chart/templates/gateway.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/gateway.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/metrics.yaml b/lab/broken-chart/templates/metrics.yaml[m[m
+[1mindex 562be78..6200bf1 100644[m[m
+[1m--- a/lab/broken-chart/templates/metrics.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/metrics.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/migrate-job.yaml b/lab/broken-chart/templates/migrate-job.yaml[m[m
+[1mindex e9d5aa2..1cac93f 100644[m[m
+[1m--- a/lab/broken-chart/templates/migrate-job.yaml[m[m
+:[K[K:[K[H[2J[H[H[2J[H[1mdiff --git a/lab/broken-chart/templates/backend.yaml b/lab/broken-chart/templates/backend.yaml[m[m
+[1mindex 99938bd..0e781ab 100644[m[m
+[1m--- a/lab/broken-chart/templates/backend.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/backend.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/gateway.yaml b/lab/broken-chart/templates/gateway.yaml[m[m
+[1mindex 151abb3..74ae3f9 100644[m[m
+[1m--- a/lab/broken-chart/templates/gateway.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/gateway.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/metrics.yaml b/lab/broken-chart/templates/metrics.yaml[m[m
+[1mindex 562be78..6200bf1 100644[m[m
+[1m--- a/lab/broken-chart/templates/metrics.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/metrics.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/migrate-job.yaml b/lab/broken-chart/templates/migrate-job.yaml[m[m
+[1mindex e9d5aa2..1cac93f 100644[m[m
+[1m--- a/lab/broken-chart/templates/migrate-job.yaml[m[m
+:[K[H[2J[H[H[2J[H[1mdiff --git a/lab/broken-chart/templates/backend.yaml b/lab/broken-chart/templates/backend.yaml[m[m
+[1mindex 99938bd..0e781ab 100644[m[m
+[1m--- a/lab/broken-chart/templates/backend.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/backend.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/gateway.yaml b/lab/broken-chart/templates/gateway.yaml[m[m
+[1mindex 151abb3..74ae3f9 100644[m[m
+[1m--- a/lab/broken-chart/templates/gateway.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/gateway.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/metrics.yaml b/lab/broken-chart/templates/metrics.yaml[m[m
+[1mindex 562be78..6200bf1 100644[m[m
+[1m--- a/lab/broken-chart/templates/metrics.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/metrics.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/migrate-job.yaml b/lab/broken-chart/templates/migrate-job.yaml[m[m
+[1mindex e9d5aa2..1cac93f 100644[m[m
+[1m--- a/lab/broken-chart/templates/migrate-job.yaml[m[m
+:[K[H[2J[H[H[2J[H[1mdiff --git a/lab/broken-chart/templates/backend.yaml b/lab/broken-chart/templates/backend.yaml[m[m
+[1mindex 99938bd..0e781ab 100644[m[m
+[1m--- a/lab/broken-chart/templates/backend.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/backend.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/gateway.yaml b/lab/broken-chart/templates/gateway.yaml[m[m
+[1mindex 151abb3..74ae3f9 100644[m[m
+[1m--- a/lab/broken-chart/templates/gateway.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/gateway.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/metrics.yaml b/lab/broken-chart/templates/metrics.yaml[m[m
+[1mindex 562be78..6200bf1 100644[m[m
+[1m--- a/lab/broken-chart/templates/metrics.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/metrics.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/migrate-job.yaml b/lab/broken-chart/templates/migrate-job.yaml[m[m
+[1mindex e9d5aa2..1cac93f 100644[m[m
+[1m--- a/lab/broken-chart/templates/migrate-job.yaml[m[m
+:[K[K[1m+++ b/lab/broken-chart/templates/migrate-job.yaml[m[m
+[36m@@ -13,7 +13,7 @@[m [mspec:[m[m
+       labels:[m[m
+         app: migrate[m[m
+     spec:[m[m
+[31m-      restartPolicy: Always[m[m
+[32m+[m[32m      restartPolicy: OnFailure[m[m
+       containers:[m[m
+         - name: migrate[m[m
+           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"[m[m
+[36m@@ -27,6 +27,8 @@[m [mspec:[m[m
+               value: "2.0.0"[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/rbac.yaml b/lab/broken-chart/templates/rbac.yaml[m[m
+[1mindex fb4b7dc..2091b62 100644[m[m
+[1m--- a/lab/broken-chart/templates/rbac.yaml[m[m
+:[K[K[1m+++ b/lab/broken-chart/templates/rbac.yaml[m[m
+[36m@@ -31,5 +31,5 @@[m [mroleRef:[m[m
+   name: reporter-read[m[m
+ subjects:[m[m
+   - kind: ServiceAccount[m[m
+[31m-    name: default[m[m
+[32m+[m[32m    name: {{ .Values.reporter.serviceAccountName }}[m[m
+     namespace: {{ .Release.Namespace }}[m[m
+[1mdiff --git a/lab/broken-chart/templates/reporter.yaml b/lab/broken-chart/templates/reporter.yaml[m[m
+[1mindex ae50add..95e7be9 100644[m[m
+[1m--- a/lab/broken-chart/templates/reporter.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/reporter.yaml[m[m
+[36m@@ -42,6 +42,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/templates/worker.yaml b/lab/broken-chart/templates/worker.yaml[m[m
+:[K[K[1mindex 1befdfa..8b0af01 100644[m[m
+[1m--- a/lab/broken-chart/templates/worker.yaml[m[m
+[1m+++ b/lab/broken-chart/templates/worker.yaml[m[m
+[36m@@ -37,6 +37,8 @@[m [mspec:[m[m
+             timeoutSeconds: 3[m[m
+           securityContext:[m[m
+             runAsNonRoot: true[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+[32m+[m[32m            runAsUser: 10001[m[m
+             readOnlyRootFilesystem: true[m[m
+             allowPrivilegeEscalation: false[m[m
+             capabilities:[m[m
+[1mdiff --git a/lab/broken-chart/values.yaml b/lab/broken-chart/values.yaml[m[m
+[1mindex 957713c..c0358d1 100644[m[m
+[1m--- a/lab/broken-chart/values.yaml[m[m
+[1m+++ b/lab/broken-chart/values.yaml[m[m
+[36m@@ -35,7 +35,7 @@[m [mgateway:[m[m
+     APP_MODE: "gateway"[m[m
+     APP_NAME: "gateway"[m[m
+     VERSION: "2.0.0"[m[m
+[31m-    BACKEND_URL: "http://backend.default.svc:8080"[m[m
+[32m+[m[32m    BACKEND_URL: "http://backend.debug-lab.svc:8080"[m[m
+:[K[K   resources:[m[m
+     requests:[m[m
+       cpu: "50m"[m[m
+[36m@@ -81,10 +81,10 @@[m [mmetrics:[m[m
+     VERSION: "2.0.0"[m[m
+   resources:[m[m
+     requests:[m[m
+[31m-      cpu: "2"[m[m
+[32m+[m[32m      cpu: "50m"[m[m
+       memory: "64Mi"[m[m
+     limits:[m[m
+[31m-      cpu: "4"[m[m
+[32m+[m[32m      cpu: "200m"[m[m
+       memory: "128Mi"[m[m
+ [m[m
+ migrate:[m[m
+[7m(END)[27m[K[K[K[7m(END)[27m[K[K[K[7m(END)[27m[K[K[K[7m(END)[27m[K[K[K[7m(E

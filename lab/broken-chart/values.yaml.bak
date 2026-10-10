@@ -13,7 +13,9 @@ image:
 
 common:
   # Every workload serves plain HTTP on this port.
-  port: 8081backend:
+  port: 8081
+
+backend:
   replicas: 1
   env:
     APP_MODE: "api"
