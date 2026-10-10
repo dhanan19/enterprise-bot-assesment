@@ -30,6 +30,8 @@ jobs:
       - name: Validate rendered Kubernetes manifests
         run: helm template debug-lab ./broken-chart --namespace debug-lab
 
+#######
+
   image-security:
     name: Build and scan container image
     runs-on: ubuntu-latest
